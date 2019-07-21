@@ -17,26 +17,98 @@
   </style-->
 </head>
 <body>
-  <div class="header container">
-    <h1>Food Co-op Project</h1>
+  <div class="header container navbar-expand-lg navbar-primary bg-light shadow-sm mb-2">
+    <h1><center>Food Co-op Project</center></h1>
   </div>
-  <div class="nav container">
-    <a href="vegetables">Vegetables</a>
-    <a href="fruits">Fruits</a>
-    <a href="grains">Grains</a>
-    <a href="dairy">Dairy</a>
-    <a href="meats">Meats</a>
-    <a href="Snacks">Snacks</a>
-    <a href="condiments">Condiments</a>
-    <a href="desserts">Desserts</a>
+<!--Top Navigational Menu -->  
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-2">
+  <div class="container">
+    <a class="navbar-brand" href="#">Menu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample07">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="landing.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sellers">Sellers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="product.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signup.html">Sign-Up</a>
+        </li>
+      </ul> 
+    </div>
   </div>
-  <div class="search container py-4">
-    <div class="form-group row">
-      <button type="submit" class="btn btn-primary">Search!</button>
-	  <div class="col-sm-8">
-	    <input type="text" class="form-control" id="searchQuery" placeholder="product you searched">
-	  </div>
-	</div>
+</nav>
+ 
+<!--Category Navigational Menu -->  
+<nav class="navbar navbar-expand-lg navbar-light mb-2 bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#">Categories</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample07">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="vegetables">Vegetables</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="fruits">Fruits</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="grains">Grains</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dairy">Dairy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="meats">Meats</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="snacks">Snacks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="condiments">Condiments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="desserts">Desserts</a>
+        </li>
+		
+      <!-- Other options for this navigation bar 
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+	  
+	    <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown07">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+		-->
+      </ul>
+      <form class="form-inline my-2 my-md-0">
+        <input class="form-control" type="text" placeholder="Product" aria-label="Search">
+      </form>
+    </div>
+  </div>
+</nav>
+ 
+  </div>
+  
 	
   </div>
   <div class="offers container">
