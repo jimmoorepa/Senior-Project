@@ -1,3 +1,4 @@
+// Setting up prerequisite modules
 var express = require('express');
 var app = express();
 
@@ -9,29 +10,49 @@ var http = require('http');
 var fs = require('fs');
 var mysql = require('mysql');
 
+// Runs on port 3001
 app.set('port', process.env.PORT || 3001);
 
+// Handler for public files in the /public folder
+app.use(express.static(__dirname + '/public'));
+
+// Handlers for each page we need.  These will cover the use cases.
+app.get('/', function(req, res) {
+  res.render('landing',
+    {
+	  page: 'landing',
+	  title:  'Home',
+	}
+  );
+});
+
+app.get('/result', function(req, res) {
+  res.render('searchResults',
+    {
+	  page:  'searchResults',
+	  title:  'Search Results',
+	}
+  );
+});
 
 
-
-
-
-//404 page
+// 404 error when a file or page is not found
 app.use(function (req, res) {
-	res.type('text/plain');
-	res.status(404);
-	res.send('404 - Not Found');
+  res.type('text/plain');
+  res.status(404);
+  res.send('404 - Not Found');
 });
 
-//500 page
+// 500 page when something fails to process
 app.use(function (err, req, res, next) {
-	console.error(err.stack);
-	res.type('text/plain');
-	res.status(500);
-	res.send('500 - Server Error');
+  console.error(err.stack);
+  res.type('text/plain');
+  res.status(500);
+  res.send('500 - Server Error');
 });
 
+// The listener. 
 app.listen(app.get('port'), function () {
-	console.log('Express started on http://localhost: ' +
-		app.get('port') + '; press Ctrl-C to terminate.');
+  console.log('Express started on http://localhost: ' +
+    app.get('port') + '; press Ctrl-C to terminate.');
 });
