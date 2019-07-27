@@ -8,20 +8,20 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema FoodCoop
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `mydb` ;
+DROP SCHEMA IF EXISTS `FoodCoop` ;
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema FoodCoop
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `FoodCoop` DEFAULT CHARACTER SET utf8 ;
+USE `FoodCoop` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Customer`
+-- Table `FoodCoop`.`Customer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Customer` (
+CREATE TABLE IF NOT EXISTS `FoodCoop`.`Customer` (
   `idCustomer` INT NOT NULL,
   `CustFName` VARCHAR(45) NULL,
   `CustLName` VARCHAR(45) NULL,
@@ -35,9 +35,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Vendor`
+-- Table `FoodCoop`.`Vendor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Vendor` (
+CREATE TABLE IF NOT EXISTS `FoodCoop`.`Vendor` (
   `idVendor` INT NOT NULL,
   `VendFName` VARCHAR(45) NULL,
   `VendLName` VARCHAR(45) NULL,
@@ -50,35 +50,20 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Vendor` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `mydb`.`VendorDetail`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`VendorDetail` (
-)
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
--- Table `mydb`.`CustomerDetail`
+-- Table `FoodCoop`.`MemberPrivilege`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`CustomerDetail` (
-)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`MemberPrivilege`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`MemberPrivilege` (
+CREATE TABLE IF NOT EXISTS `FoodCoop`.`MemberPrivilege` (
   `idMemberPrivilege` INT NOT NULL,
   PRIMARY KEY (`idMemberPrivilege`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`CustomerSearchHistory`
+-- Table `FoodCoop`.`CustomerSearchHistory`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`CustomerSearchHistory` (
+CREATE TABLE IF NOT EXISTS `FoodCoop`.`CustomerSearchHistory` (
   `idCustomerSearchHistory` INT NOT NULL AUTO_INCREMENT,
   `idCustomer` INT NOT NULL,
   `SearchText` VARCHAR(45) NULL,
@@ -88,9 +73,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`product`
+-- Table `FoodCoop`.`product`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`product` (
+CREATE TABLE IF NOT EXISTS `FoodCoop`.`product` (
   `idProduct` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NULL,
   `ShortDescription` LONGTEXT NULL,
@@ -103,16 +88,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`product` (
   INDEX `fk_product_Vendor_idx` (`idVendor` ASC),
   CONSTRAINT `fk_product_Vendor`
     FOREIGN KEY (`idVendor`)
-    REFERENCES `mydb`.`Vendor` (`idVendor`)
+    REFERENCES `FoodCoop`.`Vendor` (`idVendor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`PurchaseHistory`
+-- Table `FoodCoop`.`PurchaseHistory`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`PurchaseHistory` (
+CREATE TABLE IF NOT EXISTS `FoodCoop`.`PurchaseHistory` (
+  `PurHistID` VARCHAR(45) NULL,
   `Customer_idCustomer` INT NOT NULL,
   `product_idProduct` INT NOT NULL,
   `Quantity` INT NULL,
@@ -122,21 +108,22 @@ CREATE TABLE IF NOT EXISTS `mydb`.`PurchaseHistory` (
   INDEX `fk_Customer_has_product_Customer1_idx` (`Customer_idCustomer` ASC),
   CONSTRAINT `fk_Customer_has_product_Customer1`
     FOREIGN KEY (`Customer_idCustomer`)
-    REFERENCES `mydb`.`Customer` (`idCustomer`)
+    REFERENCES `FoodCoop`.`Customer` (`idCustomer`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Customer_has_product_product1`
     FOREIGN KEY (`product_idProduct`)
-    REFERENCES `mydb`.`product` (`idProduct`)
+    REFERENCES `FoodCoop`.`product` (`idProduct`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`CustReview`
+-- Table `FoodCoop`.`CustReview`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`CustReview` (
+CREATE TABLE IF NOT EXISTS `FoodCoop`.`CustReview` (
+  `CustReviewId` VARCHAR(45) NULL,
   `product_idProduct` INT NOT NULL,
   `Customer_idCustomer` INT NOT NULL,
   `Comment` TEXT NULL,
@@ -147,12 +134,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`CustReview` (
   INDEX `fk_product_has_Customer_product1_idx` (`product_idProduct` ASC),
   CONSTRAINT `fk_product_has_Customer_product1`
     FOREIGN KEY (`product_idProduct`)
-    REFERENCES `mydb`.`product` (`idProduct`)
+    REFERENCES `FoodCoop`.`product` (`idProduct`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_product_has_Customer_Customer1`
     FOREIGN KEY (`Customer_idCustomer`)
-    REFERENCES `mydb`.`Customer` (`idCustomer`)
+    REFERENCES `FoodCoop`.`Customer` (`idCustomer`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
