@@ -49,6 +49,13 @@ app.get('/shop-cart', function(req, res) {
 	});
 });
 
+app.get('/shop-cart', function(req, res) {
+  res.render('shop-cart', {
+	  page:  'shop-cart',
+	  title:  'Shopping Cart',
+	});
+});
+
 
 
 // 404 error when a file or page is not found
