@@ -24,9 +24,59 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
   res.render('landing',
     {
+<<<<<<< HEAD
       page: 'landing',
       title: 'Home',
     }
+=======
+	  page: 'landing',
+	  title:  'Home',
+	  product1:  [
+	    {
+		  name:  'Carrots',
+		  shortDescription:  'Carrots',
+		  price:  '3.00',
+		},
+		{
+		  name:  'Potato',
+		  shortDescription:  'Potato',
+		  price:  '6.50',
+		},
+		{
+		  name:  'Cheddar Cheese',
+		  shortDescription:  'Cheddar Cheese',
+		  price:  '12.99',
+		},
+		{
+		  name:  'Strawberry Jam',
+		  shortDescription:  'Strawberry Jam',
+		  price:  '4.95',
+		}
+	  ],
+	  product2:  [
+	    {
+		  name:  'Carrots',
+		  shortDescription:  'Carrots',
+		  price:  '3.00',
+		},
+		{
+		  name:  'Potato',
+		  shortDescription:  'Potato',
+		  price:  '6.50',
+		},
+		{
+		  name:  'Cheddar Cheese',
+		  shortDescription:  'Cheddar Cheese',
+		  price:  '12.99',
+		},
+		{
+		  name:  'Strawberry Jam',
+		  shortDescription:  'Strawberry Jam',
+		  price:  '4.95',
+		}
+	  ]
+	}
+>>>>>>> master
   );
 });
 
