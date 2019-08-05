@@ -8,3 +8,4 @@ SELECT
     ORDER BY Rating
 		DESC
 	LIMIT 20
+    INTO OUTFILE 'foodCoopPopular.pdf'
