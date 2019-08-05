@@ -9,6 +9,10 @@ app.set('view engine', 'handlebars');
 var http = require('http');
 var fs = require('fs');
 var mysql = require('mysql');
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Runs on port 3001
 app.set('port', process.env.PORT || 3001);
@@ -17,9 +21,14 @@ app.set('port', process.env.PORT || 3001);
 app.use(express.static(__dirname + '/public'));
 
 // Handlers for each page we need.  These will cover the use cases.
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.render('landing',
     {
+<<<<<<< HEAD
+      page: 'landing',
+      title: 'Home',
+    }
+=======
 	  page: 'landing',
 	  title:  'Home',
 	  product1:  [
@@ -67,18 +76,27 @@ app.get('/', function(req, res) {
 		}
 	  ]
 	}
+>>>>>>> master
   );
 });
 
-app.get('/result', function(req, res) {
+app.get('/result', function (req, res) {
   res.render('searchResults',
     {
-	  page:  'searchResults',
-	  title:  'Search Results',
-	}
+      page: 'searchResults',
+      title: 'Search Results',
+    }
   );
 });
 
+app.get("/postproduct", function (req, res) {
+  res.render("postproduct");
+});
+
+app.post('/postForm', function (req, res) {
+  console.log(req.body);
+  res.redirect("/postproduct");
+})
 
 // 404 error when a file or page is not found
 app.use(function (req, res) {
