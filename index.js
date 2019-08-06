@@ -12,6 +12,7 @@ var mysql = require('mysql');
 var bodyParser = require('body-parser');
 
 var credentials = require('./credentials.js');
+var sql = mysql.createConnection(credentials);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -24,6 +25,8 @@ app.use(express.static(__dirname + '/public'));
 
 // Handlers for each page we need.  These will cover the use cases.
 app.get('/', function (req, res) {
+  var products = getLandingProducts();
+  console.log(products);
   res.render('landing',
     {
 	  page: 'landing',
@@ -90,7 +93,6 @@ app.get("/postproduct", function (req, res) {
 });
 
 app.post('/postForm', function (req, res) {
-  console.log(req.body);
   res.redirect("/postproduct");
 })
 
@@ -110,7 +112,12 @@ app.use(function (err, req, res, next) {
 });
 
 function getLandingProducts() {
-	
+  sql.connect();
+  
+  sql.query('SELECT Name, ShortDescription, Price FROM product LIMIT 4', function(error, results, fields) {
+    if (error) throw error;
+	return results;
+  });
 }
 
 // The listener. 
