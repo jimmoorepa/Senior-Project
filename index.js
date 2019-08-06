@@ -11,6 +11,8 @@ var fs = require('fs');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
 
+var credentials = require('./credentials.js');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -24,11 +26,6 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
   res.render('landing',
     {
-<<<<<<< HEAD
-      page: 'landing',
-      title: 'Home',
-    }
-=======
 	  page: 'landing',
 	  title:  'Home',
 	  product1:  [
@@ -76,7 +73,6 @@ app.get('/', function (req, res) {
 		}
 	  ]
 	}
->>>>>>> master
   );
 });
 
@@ -112,6 +108,10 @@ app.use(function (err, req, res, next) {
   res.status(500);
   res.send('500 - Server Error');
 });
+
+function getLandingProducts() {
+	
+}
 
 // The listener. 
 app.listen(app.get('port'), function () {
