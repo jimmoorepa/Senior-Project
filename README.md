@@ -4,11 +4,10 @@
 CMPS - 480 - Summer II 2019
 
 ## Group Members:
--Tim
--Lee
--Jim Moore
--
--
+* Tim
+* Lee
+* Jim Moore
+* ?
 
 ## Project Objectives:
 The objective of our project is to create a website that provides an 
@@ -29,10 +28,10 @@ Content - Contains the files for the web interface.
 
 
 ## Version History:
-*Version 1.0 - Included a simple page with a form, but nothing functioned.
-*Version 1.0.1 - Built a menu bar, and incorporated BootStrap styling.
-*Version 1.0.2 - Expanded on the styling, and creating other pages.
-*Version 1.1 - Incorporated simulated backend interaction.
+* Version 1.0 - Included a simple page with a form, but nothing functioned.
+* Version 1.0.1 - Built a menu bar, and incorporated BootStrap styling.
+* Version 1.0.2 - Expanded on the styling, and creating other pages.
+* Version 1.1 - Incorporated simulated backend interaction.
 
 ## Database Diagram
 image::diagram.png[alt=diagram,width=600px][orientation=landscape]
