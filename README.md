@@ -36,13 +36,13 @@ Content - Contains the files for the web interface.
 
 ## Version History:
 [options="header,footer"]
-|=============================
+|======================================
 |Item # | Version #     | Description
 | 1     | Version 1.0   | Included a simple page with a form, but nothing functioned.
 | 2     | Version 1.0.1 | Built a menu bar, and incorporated BootStrap styling.
 | 3     | Version 1.0.2 | Expanded on the styling, and creating other pages.
 | 4     | Version 1.1   | Incorporated simulated backend interaction.
-|=============================
+|======================================
 
 ## Database Diagram
 image::[db-diagram.png][alt=diagram,width=600px][orientation=landscape]
