@@ -49,7 +49,6 @@ Content - Contains the files for the web interface.
 image::[db-diagram.png][alt=diagram,width=600px][orientation=landscape]
 
 Tables
-^^^^^^
 .An example table
 [options="header,footer"]
 |=======================
