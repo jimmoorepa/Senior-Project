@@ -54,4 +54,4 @@ ID,FName,LName,Address,Phone
 |===========================
 
 ## Database Diagram
-image:dbdiagram.png[alt=diagram,width=600px][orientation=landscape]
+image::dbdiagram.png[alt=diagram,width=600px][orientation=landscape]
