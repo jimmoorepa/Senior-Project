@@ -40,7 +40,6 @@ Item # :: Version # :: Description
 . 2 :: Version 1.0.1 :: Built a menu bar, and incorporated BootStrap styling.
 . 3 :: Version 1.0.2 :: Expanded on the styling, and creating other pages.
 . 4 :: Version 1.1 :: Incorporated simulated backend interaction.
-|=======================
 
 ## Database Diagram
 image::dbdiagram.png[alt=diagram,width=600px][orientation=landscape]
