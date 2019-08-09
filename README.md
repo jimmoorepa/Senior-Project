@@ -48,3 +48,14 @@ Content - Contains the files for the web interface.
 ## Database Diagram
 image::[db-diagram.png][alt=diagram,width=600px][orientation=landscape]
 
+Tables
+^^^^^^
+.An example table
+[options="header,footer"]
+|=======================
+|Col 1|Col 2      |Col 3
+|1    |Item 1     |a
+|2    |Item 2     |b
+|3    |Item 3     |c
+|6    |Three items|d
+|=======================
