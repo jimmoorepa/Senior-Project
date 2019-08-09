@@ -45,4 +45,4 @@ Content - Contains the files for the web interface.
 |=============================
 
 ## Database Diagram
-image::db-diagram.png[alt=diagram,width=600px][orientation=landscape]
+image::[db-diagram.png][alt=diagram,width=600px][orientation=landscape]
