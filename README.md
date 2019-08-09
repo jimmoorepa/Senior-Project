@@ -16,7 +16,7 @@ vendors the opportunity to purchase farm fresh foods that are localized to the
 customers area.
 
 ## Use Cases:
-image::usecases.png[alt=diagram,width=600px][orientation=landscape]
+image::usecases.png["Use Cases",width=600px][orientation=landscape]
 
 ## GitHub File Structure:
 Documentation - Contains documents uploaded by group members.
