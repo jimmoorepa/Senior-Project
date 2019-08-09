@@ -44,16 +44,14 @@ Content - Contains the files for the web interface.
 | 3     | Version 1.0.2 | Expanded on the styling, and creating other pages.
 | 4     | Version 1.1   | Incorporated simulated backend interaction.
 |=======================
- 
-.An example table
-[options="header,footer"]
-|=======================
-|Col 1|Col 2      |Col 3
-|1    |Item 1     |a
-|2    |Item 2     |b
-|3    |Item 3     |c
-|6    |Three items|d
-|=======================
+
+[grid="rows",format="csv"]
+[options="header",cols="^,<,<s,<,>m"]
+|===========================
+ID,FName,LName,Address,Phone
+1,Vasya,Pupkin,London,+123
+2,X,Y,"A,B",45678
+|===========================
 
 ## Database Diagram
 image::[db-diagram.png][alt=diagram,width=600px][orientation=landscape]
