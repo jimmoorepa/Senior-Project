@@ -35,7 +35,7 @@ Content - Contains the files for the web interface.
 * 
 
 ## Version History:
-[grid="rows",format="csv"]
+[options="header,footer"]
 |=============================
 |Item # | Version # | Description
 | 1 | Version 1.0 | Included a simple page with a form, but nothing functioned.
