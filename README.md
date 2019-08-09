@@ -16,7 +16,7 @@ vendors the opportunity to purchase farm fresh foods that are localized to the
 customers area.
 
 ## Use Cases:
-image::diagram.png[alt=diagram,width=600px][orientation=landscape]
+image::usecases.png[alt=diagram,width=600px][orientation=landscape]
 
 ## GitHub File Structure:
 Documentation - Contains documents uploaded by group members.
@@ -26,12 +26,23 @@ Content - Contains the files for the web interface.
 ## GitHub Branches:
 -
 
+## Software Bugs & Fixes
+* Website unable to communicate with database.
+  - Working on either Tim is going to fix his code.
+  - Or, Jim has been working on creating a new node server that uses Embedded JavaSript (EJS).
+* Unable to add items to shopping cart.
+* Need to update database to enable the storage of images in association with the product.
+* 
 
 ## Version History:
-* Version 1.0 - Included a simple page with a form, but nothing functioned.
-* Version 1.0.1 - Built a menu bar, and incorporated BootStrap styling.
-* Version 1.0.2 - Expanded on the styling, and creating other pages.
-* Version 1.1 - Incorporated simulated backend interaction.
+[grid="rows",format="csv"]
+|=============================
+|Item # | Version # | Description
+| 1 | Version 1.0 | Included a simple page with a form, but nothing functioned.
+| 2 | Version 1.0.1 | Built a menu bar, and incorporated BootStrap styling.
+| 3 | Version 1.0.2 | Expanded on the styling, and creating other pages.
+| 4 | Version 1.1 | Incorporated simulated backend interaction.
+|=============================
 
 ## Database Diagram
-image::diagram.png[alt=diagram,width=600px][orientation=landscape]
+image::db-diagram.png[alt=diagram,width=600px][orientation=landscape]
