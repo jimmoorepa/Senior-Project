@@ -12,7 +12,6 @@ var mysql = require('mysql');
 var bodyParser = require('body-parser');
 
 var credentials = require('./credentials.js');
-var sql = mysql.createConnection(credentials);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,58 +24,19 @@ app.use(express.static(__dirname + '/public'));
 
 // Handlers for each page we need.  These will cover the use cases.
 app.get('/', function (req, res) {
-  var products = getLandingProducts();
-  console.log(products);
-  res.render('landing',
-    {
-	  page: 'landing',
-	  title:  'Home',
-	  product1:  [
-	    {
-		  name:  'Carrots',
-		  shortDescription:  'Carrots',
-		  price:  '3.00',
-		},
-		{
-		  name:  'Potato',
-		  shortDescription:  'Potato',
-		  price:  '6.50',
-		},
-		{
-		  name:  'Cheddar Cheese',
-		  shortDescription:  'Cheddar Cheese',
-		  price:  '12.99',
-		},
-		{
-		  name:  'Strawberry Jam',
-		  shortDescription:  'Strawberry Jam',
-		  price:  '4.95',
-		}
-	  ],
-	  product2:  [
-	    {
-		  name:  'Carrots',
-		  shortDescription:  'Carrots',
-		  price:  '3.00',
-		},
-		{
-		  name:  'Potato',
-		  shortDescription:  'Potato',
-		  price:  '6.50',
-		},
-		{
-		  name:  'Cheddar Cheese',
-		  shortDescription:  'Cheddar Cheese',
-		  price:  '12.99',
-		},
-		{
-		  name:  'Strawberry Jam',
-		  shortDescription:  'Strawberry Jam',
-		  price:  '4.95',
-		}
-	  ]
-	}
-  );
+  getLandingProducts(function(results) {  
+    //console.log(results);
+    
+    var products = JSON.parse(JSON.stringify(results));
+    
+    res.render('landing',
+      {
+        page: 'landing',
+        title:  'Home',
+        product1:  products,
+      }
+    );
+  });
 });
 
 app.get('/result', function (req, res) {
@@ -110,14 +70,18 @@ app.use(function (err, req, res, next) {
   res.status(500);
   res.send('500 - Server Error');
 });
+  
+function getLandingProducts(cb) {
 
-function getLandingProducts() {
+  var sql = mysql.createConnection(credentials);
   sql.connect();
   
-  sql.query('SELECT Name, ShortDescription, Price FROM product LIMIT 4', function(error, results, fields) {
+  sql.query('SELECT Name, ShortDescription, Price FROM product LIMIT 8', function(error, results, fields) {
     if (error) throw error;
-	return results;
+	  cb(results);
   });
+  sql.end();
+  //sql.disconnect();
 }
 
 // The listener. 
