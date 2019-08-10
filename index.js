@@ -39,13 +39,20 @@ app.get('/', function (req, res) {
   });
 });
 
-app.get('/result', function (req, res) {
+app.get('/results', function (req, res) {
   res.render('searchResults',
     {
       page: 'searchResults',
       title: 'Search Results',
     }
   );
+});
+
+app.post('/search', function (req, res) {
+  if (req.xhr || req.accepts('json,html') === 'json') {
+    res.send({success: true});
+    console.log(req.body.searchText);
+  }
 });
 
 app.get("/postproduct", function (req, res) {
@@ -81,7 +88,6 @@ function getLandingProducts(cb) {
 	  cb(results);
   });
   sql.end();
-  //sql.disconnect();
 }
 
 // The listener. 
