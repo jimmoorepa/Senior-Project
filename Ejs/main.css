@@ -1,0 +1,40 @@
+body {
+  text-align: center;
+  padding-bottom: 20px;
+}
+div.nav {
+  background-color: #FEA95E;
+}
+div.container {
+  background-color: #FFCD11;
+}
+div.credentials {
+  background-color: #FEA95E;
+}
+
+// Navigation bar
+.navbar {
+  margin-bottom: 20px;
+}
+
+// Products 
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}

@@ -1,0 +1,42 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>	
+ 
+<body>
+
+<h1>Listing data from product table</h1>
+
+  <table> 
+	<% if (data.length > 0) { %>
+	  <% var i = 0 %>
+	<% console.log(data.length)  %>
+	  <% data.forEach(function(product){ %>
+	  <% i = i + 1 %>
+    <tr>
+	  <td><%= i %></td>
+	  <td><%=product.idProduct%></td> 
+	  <td><%=product.Name%></td> 
+	  <td><%=product.ShortDescription%></td> 
+	  <td><%=product.Description%></td> 
+	  <td><%=product.Price%></td> 
+	  
+	</tr>
+	
+	<% }) %>
+	<% } %>
+	<% if (data.length = 0) { %>
+	<tr>
+	  <td>No product to display</td>
+	</tr>
+	<% } %>
+	
+  </table>
+
+
+</body>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>
