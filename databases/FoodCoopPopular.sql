@@ -5,7 +5,7 @@ SELECT
         SQL_SMALL_RESULT
 	product_idProduct, Rating
     FROM CustReview
-    ORDER BY Rating
+    GROUP BY Rating
 		DESC
 	LIMIT 20
     INTO OUTFILE 'foodCoopPopular.pdf'
