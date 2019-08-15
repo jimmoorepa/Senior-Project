@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
 including header content which is common for all pages
 -->
@@ -65,3 +66,72 @@ including header content which is common for all pages
 including footer content which is common for all pages
 -->
 <%- include ../layouts/footer.ejs %>
+=======
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>	
+ 
+  
+<body>
+
+	 <% data.forEach(function(product){ %>
+		<% var prodId = product.idProduct %> 
+	  <% console.log("view.ejs, prodId = " + prodId) %>
+	<form action="product/update" id="update" name="frmupdate">
+  <div class="offers container">
+    <div class="row">
+	  <div class="col-lg-4 py-3">
+		<ul class="list-unstyled mt-3 mb-4 text-center">
+		  <li><img src="./images/cucumber.jpg" height=200 width=275></li>
+        </ul>
+	  </div>
+	  <div class="col-lg-8 py-3 row">
+	    <div class="col-sm-8">
+	      <h4>Product Name<br>
+		  <input type="text" name="prodName" id="prodName" value=
+		  "<%=product.Name%>"></h4>
+		</div>
+		<div class="col-sm-4">
+		  <h4>Price: <input type="text" id="desc" name="desc"
+		  value ="<%=product.Price.toFixed(2) %>"></h4>
+		</div>
+		<div class="col-md-12 py-3">
+		  Short Description: <input type="text" id="desc" name="desc"
+		  value ="<%=product.ShortDescription%>">
+		</div>
+		<div class="col-md-12 py-3">
+		  <h4>Full Description:</h4> <br>
+		  <textarea id="desc" name="desc" rows="10" cols="30">
+		  <%=product.Description%></textarea>
+		<div class="col-md-12 py-3">
+			Quantity Selected:
+			<select id="orderQty" name="orderQty">
+				<option value="5">5</option>
+				<option value="10" selected>10</option>
+				<option value="15">15</option>
+				<option value="All">All</option>
+			</select>
+		  
+		</div>
+	  </div>
+	  <div class="col-lg-4 py-3 row">
+		<button type="button" class="btn btn-sm btn-block btn-primary"
+		  onclick="history.go(-1);">Back to Results</button>
+		<button type="button" class="btn btn-sm btn-block btn-primary"
+			type="submit"onclick="window.location.href = '/cart';">Add to Cart</button>
+	  </div>
+	</div>
+  </div>
+  </form>
+  
+  	<% }) %>
+
+  
+</body>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>
+>>>>>>> af2c6f46924961892833c232c4553412cf94e43a

@@ -1,6 +1,10 @@
 var express = require('express')
 var app = express()
+<<<<<<< HEAD
 console.log("File loaded - index.js");
+=======
+console.log("File loaded -index.js");
+>>>>>>> af2c6f46924961892833c232c4553412cf94e43a
 
 /* 
 app.get('/', function(req, res) {
@@ -34,6 +38,7 @@ app.get('/', function(req, res, next) {
 })
 
 
+<<<<<<< HEAD
 /*
 // Search
 app.get('/(:searchtext)', function(req, res, next) {	
@@ -63,6 +68,8 @@ app.get('/(:searchtext)', function(req, res, next) {
 	})
 })
 */
+=======
+>>>>>>> af2c6f46924961892833c232c4553412cf94e43a
  
 /** 
  * We assign app object to module.exports
