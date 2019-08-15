@@ -1,20 +1,20 @@
 <!--
 including header content which is common for all pages
 -->
-<%- include ../layouts/header.ejs %>	
+<%- include ./layouts/header.ejs %>	
  
   
 <body>
 
 	 <% data.forEach(function(product){ %>
 		<% var prodId = product.idProduct %> 
-	  <% console.log("view.ejs, prodId = " + prodId) %>
+	  <% console.log("search.ejs, prodId = " + prodId) %>
 	<form action="product/update" id="update" name="frmupdate">
   <div class="offers container">
     <div class="row">
 	  <div class="col-lg-4 py-3">
 		<ul class="list-unstyled mt-3 mb-4 text-center">
-		  <li><img src="./images/cucumber.jpg" height=200 width=275></li>
+		  <li><img src="/images/cucumber.jpg" height=200 width=275></li>
         </ul>
 	  </div>
 	  <div class="col-lg-8 py-3 row">
@@ -50,7 +50,9 @@ including header content which is common for all pages
 		<button type="button" class="btn btn-sm btn-block btn-primary"
 		  onclick="history.go(-1);">Back to Results</button>
 		<button type="button" class="btn btn-sm btn-block btn-primary"
-			type="submit"onclick="window.location.href = '/cart/add?prodId<%=prodId%>';">Add to Cart</button>
+			type="submit" 
+			onclick="window.location.href = '/cart/add?prodId<%=prodId%>';">
+			Add to Cart</button>
 	  </div>
 	</div>
   </div>
@@ -58,10 +60,10 @@ including header content which is common for all pages
   
   	<% }) %>
 
-  
-</body>
 
 <!--
 including footer content which is common for all pages
 -->
-<%- include ../layouts/footer.ejs %>
+<%- include ./layouts/footer.ejs %>
+  
+</body>

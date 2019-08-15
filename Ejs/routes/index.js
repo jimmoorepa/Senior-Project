@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express()
-console.log("File loaded -index.js");
+console.log("File loaded - index.js");
 
 /* 
 app.get('/', function(req, res) {
@@ -34,6 +34,35 @@ app.get('/', function(req, res, next) {
 })
 
 
+/*
+// Search
+app.get('/(:searchtext)', function(req, res, next) {	
+	//res.render('index', {title: 'Farmers Market Site'})
+	var searchString = req.body.searchtext; 
+	req.getConnection(function(error, conn) {
+		var whereClause = "Name = '" + searchString;
+			console.log("whereClause: " + whereClause);
+	  conn.query('SELECT * FROM product where ' + whereClause + "'",
+		function(err, rows, fields) {
+		  if (err) {
+			console.log(err);
+			req.flash('error', err)
+			res.render('index', {
+				title: 'Results', 
+				data: ''
+			})
+		  } else {
+			// render to views/user/list.ejs template file
+			console.log("Connected to Product table - Results");
+			res.render('index', {
+				title: 'Results', 
+				data: rows 
+			})
+		  }
+		}) 
+	})
+})
+*/
  
 /** 
  * We assign app object to module.exports

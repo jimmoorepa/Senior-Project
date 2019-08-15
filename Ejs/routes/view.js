@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express()
-console.log("File loaded - product.js");
+console.log("File loaded - vproduct.js");
 
 
 
