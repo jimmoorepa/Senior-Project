@@ -1,9 +1,6 @@
 var express = require('express')
 var app = express()
-<<<<<<< HEAD
 var router = express.Router();
-=======
->>>>>>> af2c6f46924961892833c232c4553412cf94e43a
 console.log("File loaded - product.js");
 
 /*
@@ -38,10 +35,6 @@ app.get('/view/(:prodId)', function(req, res, next) {
 	})
 })
 
-<<<<<<< HEAD
-
 // router.get('/cart', function(req, res, next) {
 
-=======
->>>>>>> af2c6f46924961892833c232c4553412cf94e43a
 module.exports = app

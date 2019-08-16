@@ -72,7 +72,7 @@ var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
 var CartRouter = require('./routes/cart');
 var SearchRouter = require('./routes/search');
-var UsersRouter = require('./routes/signin');
+//var UsersRouter = require('./routes/users');
 
 app.use('/', indexRouter);
 
@@ -89,15 +89,10 @@ app.get('/search?(:searchtext)', urlencodedParser, SearchRouter);
 app.post('/search?(:searchtext)', urlencodedParser, SearchRouter);
 
 //===================================================
-app.use('/signin/', UsersRouter);
-app.get('/signin/auth_login', UsersRouter);
-app.post('/signin/auth_login', UsersRouter);
-app.post('/signin/auth_register', UsersRouter);
-app.post('/signin/register', UsersRouter);
+//app.use('/signin', UsersRouter);
 
-var sessionData = app.session;
 /*
-app.get('/',function(req,res){ session
+app.get('/',function(req,res){
    res.sendfile("login.ejs");
 });
  app.post('/login',function(req,res){

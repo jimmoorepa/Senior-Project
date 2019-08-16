@@ -1,0 +1,35 @@
+# Online Farmers Market
+
+## Class:
+CMPS - 480 - Summer II 2019
+
+## Group Members:
+-
+-
+-Jim Moore
+-
+-
+
+## Project Objectives:
+The objective of our project is to create a website that provides an 
+online outlet as an Online Farmers Market. This site will give customers and
+vendors the opportunity to purchase farm fresh foods that are localized to the 
+customers area.
+
+## Use Cases:
+
+
+## GitHub File Structure:
+Documentation - Contains documents uploaded by group members.
+Database - Contains SQL files used for creating the database and ficticious table content.
+Content - Contains the files for the web interface.
+
+## GitHub Branches:
+-
+
+
+## Version History:
+*Version 1.0 - Included a simple page with a form, but nothing functioned.
+*Version 1.0.1 - Built a menu bar, and incorporated BootStrap styling.
+*Version 1.0.2 - Expanded on the styling, and creating other pages.
+*Version 1.1 - Incorporated simulated backend interaction.
