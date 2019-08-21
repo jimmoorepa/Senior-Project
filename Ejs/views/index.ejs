@@ -1,7 +1,7 @@
 <!--
 including header content which is common for all pages
 -->
-<%- include layouts/header.ejs %>	
+<%- include ../views/layouts/header.ejs %>	
 
 <body>
  
@@ -45,11 +45,12 @@ including header content which is common for all pages
 				'products/view/<%=prodId%>'">Details</button>
         <button type="button" class="btn btn-sm btn-block btn-primary"
 		  onclick="window.location.href =
-				'cart';">Add to cart</button>
+		  'cart/add?prodId<%=prodId%>';">Add to cart</button>
+
       </div>
     </div>
 	<!-- --> 
-  <% if (cellCounter === 3) { %>
+  <% if (cellCounter === 4) { %>
     </div> <!-- Closes out row container -->
     <!-- Creates a new row --> 
     <div class="mb-2 card"> </div> 
@@ -71,4 +72,4 @@ including header content which is common for all pages
 <!--
 including footer content which is common for all pages
 -->
-<%- include layouts/footer.ejs %>
+<%- include ../views/layouts/footer.ejs %>

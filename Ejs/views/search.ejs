@@ -1,52 +1,58 @@
 <!--
 including header content which is common for all pages
 -->
-<%- include layouts/header.ejs %>	
-
+<%- include ./layouts/header.ejs %>	
+ 
   
 <body>
 
 	 <% data.forEach(function(product){ %>
-		<% var prodId = product.idProduct %>
+		<% var prodId = product.idProduct %> 
+	  <% console.log("search.ejs, prodId = " + prodId) %>
 	<form action="product/update" id="update" name="frmupdate">
   <div class="offers container">
     <div class="row">
 	  <div class="col-lg-4 py-3">
 		<ul class="list-unstyled mt-3 mb-4 text-center">
-		  <li><img src="./images/cucumber.jpg" height=200 width=275></li>
+		  <li><img src="/images/cucumber.jpg" height=200 width=275></li>
         </ul>
 	  </div>
 	  <div class="col-lg-8 py-3 row">
 	    <div class="col-sm-8">
-	      <h2><input type="text" name="prodName" id="prodName">
-		  <%=product.Name%></h2>
+	      <h4>Product Name<br>
+		  <input type="text" name="prodName" id="prodName" value=
+		  "<%=product.Name%>"></h4>
 		</div>
 		<div class="col-sm-4">
-		  <input type="text" id="desc" name="desc">
-		  <h4>$ <%=product.Price.toFixed(2) %></h4>
+		  <h4>Price: <input type="text" id="desc" name="desc"
+		  value ="<%=product.Price.toFixed(2) %>"></h4>
 		</div>
 		<div class="col-md-12 py-3">
-		  <input type="text" id="desc" name="desc">
-		  <%=product.ShortDescription%>
+		  Short Description: <input type="text" id="desc" name="desc"
+		  value ="<%=product.ShortDescription%>">
 		</div>
 		<div class="col-md-12 py-3">
-		  <input type="text" id="desc" name="desc">
-		  <%=product.Description%>
+		  <h4>Full Description:</h4> <br>
+		  <textarea id="desc" name="desc" rows="10" cols="30">
+		  <%=product.Description%></textarea>
 		<div class="col-md-12 py-3">
-			<select id="rectoshow" name="rectoshow">
+			Quantity Selected:
+			<select id="orderQty" name="orderQty">
 				<option value="5">5</option>
 				<option value="10" selected>10</option>
 				<option value="15">15</option>
 				<option value="All">All</option>
 			</select>
-		  <%=product.Description%>
+		  
 		</div>
 	  </div>
 	  <div class="col-lg-4 py-3 row">
 		<button type="button" class="btn btn-sm btn-block btn-primary"
 		  onclick="history.go(-1);">Back to Results</button>
 		<button type="button" class="btn btn-sm btn-block btn-primary"
-			type="submit"onclick="window.location.href = 'shop-cart.html';">Add to Cart</button>
+			type="submit" 
+			onclick="window.location.href = '/cart/add?prodId<%=prodId%>';">
+			Add to Cart</button>
 	  </div>
 	</div>
   </div>
@@ -54,10 +60,10 @@ including header content which is common for all pages
   
   	<% }) %>
 
-  
-</body>
 
 <!--
 including footer content which is common for all pages
 -->
-<%- include layouts/footer.ejs %>
+<%- include ./layouts/footer.ejs %>
+  
+</body>

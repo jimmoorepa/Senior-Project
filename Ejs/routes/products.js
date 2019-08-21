@@ -1,5 +1,6 @@
 var express = require('express')
 var app = express()
+var router = express.Router();
 console.log("File loaded - product.js");
 
 /*
@@ -33,5 +34,7 @@ app.get('/view/(:prodId)', function(req, res, next) {
 		}) 
 	})
 })
+
+// router.get('/cart', function(req, res, next) {
 
 module.exports = app

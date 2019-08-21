@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express()
-console.log("File loaded -index.js");
+console.log("File loaded - index.js");
 
 /* 
 app.get('/', function(req, res) {
@@ -12,7 +12,7 @@ app.get('/', function(req, res) {
 app.get('/', function(req, res, next) {	
 	//res.render('index', {title: 'Farmers Market Site'})
 	req.getConnection(function(error, conn) { 
-	  conn.query('SELECT * FROM product where Available = 1',
+	  conn.query('SELECT * FROM product where Available = 1 LIMIT 4',
 		function(err, rows, fields) {
 		  if (err) {
 			console.log("Error: " + err);
@@ -32,7 +32,6 @@ app.get('/', function(req, res, next) {
 		}) 
 	})
 })
-
 
  
 /** 

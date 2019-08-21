@@ -4,7 +4,7 @@
   <title>Food Coop - <%= title %></title>
   <meta charset="utf-8"/>
   
-  <link rel="stylesheet" type="text/css" href="./main.css">
+  <link rel="stylesheet" type="text/css" href="/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -35,24 +35,33 @@
     <div class="collapse navbar-collapse" id="navbarsExample07">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="landing.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="sellers">Sellers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="product.html">Products</a>
+          <a class="nav-link" href="product">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="signup.html">Sign-Up</a>
+          <!-- <a class="nav-link" onclick="showSignin();">Sign-In</a> -->
+         <a class="nav-link" href="signin">Sign-In</a>
         </li> 
         <li class="nav-item">
-          <a class="nav-link" href="postproduct">Post Products</a>
+		  <%var user = user %>
+          <%console.log("user: " + user)%>
+		  <%if (user === "") { %>
+         <a class="nav-link" href="">Hello</a>
+		  <%} else { %>
+         <a class="nav-link" href=""><b>Hello <%=user%></b></a>
+		  <%} %>
         </li> 
       </ul> 
-		  <form class="form-inline my-2 my-md-0">
+		  <form class="form-inline my-2 my-md-0" action="/cart">
             <button class="btn btn-outline-success my-1 my-sm-1 bg-dark" 
-			type="submit"onclick="window.location.href = 'shop-cart.html';">View Cart</button> 
+			type="submit" >
+			View Cart</button> 
+			<!-- onclick="window.location.href = '/cart';" -->
 		  </form>
     </div>
   </div>
@@ -69,31 +78,31 @@
     <div class="collapse navbar-collapse" id="navbarsExample07">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="vegetables">Vegetables</a>
+          <a class="nav-link" href="/search?vegetables">Vegetables</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="fruits">Fruits</a>
+          <a class="nav-link" href="/search?fruits">Fruits</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="grains">Grains</a>
+          <a class="nav-link" href="/search?grains">Grains</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="dairy">Dairy</a>
+          <a class="nav-link" href="/search?dairy">Dairy</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="meats">Meats</a>
+          <a class="nav-link" href="/search?meats">Meats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="snacks">Snacks</a>
+          <a class="nav-link" href="/search?snacks">Snacks</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="condiments">Condiments</a>
+          <a class="nav-link" href="/search?condiments">Condiments</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="desserts">Desserts</a>
+          <a class="nav-link" href="/search?desserts">Desserts</a>
         </li>
 		
       <!-- Other options for this navigation bar 
@@ -110,11 +119,60 @@
           </div>
         </li>
 		-->
-      </ul>
-      <form class="form-inline my-2 my-md-0">
-        <input class="form-control" type="text" placeholder="Product" aria-label="Search">
-        <button class="btn btn-outline-success my-1 my-sm-1 bg-dark" type="submit">Search</button>
-      </form>
+      </ul> 
+      <form class="form-inline my-2 my-md-0" 
+			id="mysearch1" action="/search?" method="POST">
+        <input class="form-control" type="text" placeholder="Product"
+			aria-label="Search" id="searchtext" name="qtext">
+        <button class="btn btn-outline-success my-1 my-sm-1 bg-dark" 
+			type="submit">Search</button>
+      </form> 
+	  <!--  
+	  <form class="form-inline my-2 my-md-0" 
+			action="/search" method="GET" id="mysearch1"
+			onsubmit="return (this['input#searchtext'].value;" >
+	   name="search"
+			action="/index/?searchtext=" method="POST"
+			type="submit" name="submit" onclick="onSubmit();">Search</button>
+	  -->
     </div>
   </div>
 </nav>
+
+<script>
+/*
+ $(document).ready(function(){
+          $('#mysearch1a').on('submit', function(evt){
+		  var root = document.getElementById("searchtext").innerHTML;
+		  console.log(root);
+            evt.preventDefault();
+            var action = $(this).attr('action');
+            var $container = $(this).closest('.formContainer');
+            $.ajax({
+              url:  'search',
+              type:  'POST',
+              data:  $(this).serialize(),
+              success:  function(data) {
+                if (data.success) {
+                } else {
+                  console.log("Problem encountered" + data);
+                }
+              },
+              error: function() {
+                alert('An error has occurred.');
+				//console.log(data);
+              }
+            });
+          });
+        }); 
+*/
+
+function showSignin() {
+	var url = "signin";
+	var winName = "newWindow";
+	var winAttr = "width=500,height=600";
+	var myWindow = window.open(url,winName,winAttr);
+}
+
+</script>
+
