@@ -75,9 +75,34 @@ including header content which is common for all pages
         <button type="button" id="btn"<%=prodId%> class="btn btn-sm btn-block btn-primary"
 		  onclick="window.location.href = 
 				'products/view/<%=prodId%>'">Details</button>
-        <button type="button" class="btn btn-sm btn-block btn-primary"
-		  onclick="window.location.href =
-		  'cart/add?prodId<%=prodId%>';">Add to cart</button>
+
+        <form action="/cart/add?<%=prodId%>" method="POST" id="update" name="frmupdate">
+      <div class="col-sm-50">
+        <div class="col-sm-6">
+        <label for="state">Quantity</label>
+            <select class="custom-select d-block w-20" id="quantitySelected" required>
+              <option>0</option>
+              <option Selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+        </select>
+      </div>
+      <input type="hidden" name="productID" id="productID" value="<%=product.idProduct%>">
+      <div class="col-sm-24">
+        <button type="submit" class="btn btn-sm btn-block btn-primary"
+          onclick="window.location.href = 'cart/add?prodId<%=prodId%>';">
+          Add to cart</button>
+      </div>
+      </form>
+      </div>
+        
 
       </div>
     </div>
