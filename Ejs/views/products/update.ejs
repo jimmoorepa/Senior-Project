@@ -7,13 +7,13 @@ including header content which is common for all pages
 <body>
     <div class="container border border-secondary" id="productContainer">
         <br>
-        <form id="foodProductForm" action="/products/edit" method="POST">
+        <form id="foodProductForm" action="/products/add" method="POST">
             <div class="form-group row">
                 <label for="inputProductName" class="col-sm-2 col-form-label">
 					Product name:</label>
                 <div class="col">
                     <input type="text" class="form-control" id="inputProductName" 
-					placeholder="Ex. Wild Whole Oats">
+					name="inputProductName" placeholder="Ex. Wild Whole Oats">
                 </div>
             </div>
             <div class="form-group row">
@@ -53,7 +53,8 @@ including header content which is common for all pages
                 <label for="inputProductPrice" class="col-sm-2 col-form-label">
 					Product price:</label>
                 <div class="col">
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" class="form-control" id="inputProductPrice"
+                    name="inputProductPrice">
                 </div>
             </div>
             <div class="form-group row">
@@ -61,17 +62,17 @@ including header content which is common for all pages
 					Describe your product:</label>
                 <div class="col">
                     <textarea class="form-control" id="inputProductDescription" 
-					rows="3"
+					rows="3" name="inputProductDescription"
                         placeholder="Ex. This rare tea comes from a remote mountain 
 						region of China"></textarea>
                 </div>
             </div>
 			<div class="form-group row">
-                <label for="inputProductDescription" class="col-sm-2 col-form-label">
+                <label for="IsAvailable" class="col-sm-2 col-form-label">
 					Availability:</label>
                 <div class="col">
                     <textarea class="form-control" id="IsAvailable" 
-						rows="1"
+						rows="1" name="IsAvailable"
                         placeholder="Ex. Yes or No"></textarea>
                 </div>
             </div>

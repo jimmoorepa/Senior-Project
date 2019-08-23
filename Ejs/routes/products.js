@@ -37,10 +37,42 @@ app.get('/view/(:prodId)', function(req, res, next) {
 	})
 })
 
+
 app.get('/add', function(req, res, next) {	
 	res.render('products/update', {
-		title: 'Product Update'
-	})
+					title: 'Product Update'
+				})
+})
+
+app.post('/add', function(req, res, next) {	
+	var tableId = "FoodCoop.product";
+	console.log("Adding item to " + tableId);
+	var stringToTrim = req.body.inputProductDescription;
+	var trimmedString = stringToTrim.substring(0, 15);
+	var product_data = {
+        idProduct: '0',
+        Name: req.body.inputProductName,
+        ShortDescription: trimmedString,
+        Description: req.body.inputProductDescription,
+        Price: req.body.inputProductPrice,
+        Available: req.body.IsAvailable,
+        productcol: '0',
+        idVendor: '2',
+        image: ''
+    }; //inputFoodType 
+
+	req.getConnection(function(error, conn) {
+		conn.query('INSERT INTO ' + tableId + ' SET ?', product_data, (err, results) => {
+			if (err) {
+			console.log("Error: " + err);
+				console.log("Did not update products");
+			} else {
+				console.log('Data inserted!', results);
+				res.redirect('/')
+			}
+		});
+    });
+	
 
 })
 
