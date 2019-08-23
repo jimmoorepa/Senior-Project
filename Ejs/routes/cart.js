@@ -84,29 +84,26 @@ router.post('/add?(:prodId)', function(req, res, next) {
 	// prodName, qtySelected, price, desc
 	console.log("Adding item to cart");
 	var tableId = "FoodCoop.PurchaseHistory";
+	console.log("userID: " + req.params.userId);
 	var userId = "1"; //req.params.userId;
-	var PurHistID = "1"; //req.params.PurHistID;
+	var PurHistID = "2"; //req.params.PurHistID;
 	var purchase_data = {
         PurHistID: '2',
-        Customer_idCustomer: '1',
-        product_idProduct: (req.params.prodId),
+        Customer_idCustomer: userId,
+        product_idProduct: parseFloat(req.body.productID),
         Quantity: req.body.qtySelected,
         PurPrice: req.body.price,
         DateTime: '2019-08-22 15:30:00',
         PurchaseStatus: '1'
-    };
-    //console.log("data: " + Number(req.params.prodId));
-	req.getConnection(function(error, conn) {
+    }; 
+    req.getConnection(function(error, conn) {
 		conn.query('INSERT INTO ' + tableId + ' SET ?', purchase_data, (err, results) => {
 			if (err) {
 			console.log("Error: " + err);
 				console.log("Did not update PurchaseHistory");
 			} else {
 				console.log('Data inserted!', results);
-				res.render('/cart', {
-					title: 'Shopping Cart', 
-					//data: ''
-				})
+				res.redirect('/cart')
 			}
 		});
     });
@@ -127,6 +124,7 @@ app.post('/checkout', function(req, res, next) {
 		// Purchase status flag as "2" so the items do not return to cart.
 		// Then processing the order begins.
     	var prodQuery = "Update " + tableId + " set PurchaseStatus = '2' " + outWhere;
+		/*
 		conn.query(prodQuery, function(err, rows, fields) {
 			if (err) {
 			console.log("Error: " + err);
@@ -145,6 +143,7 @@ app.post('/checkout', function(req, res, next) {
 				
 		  }
 		}) 
+		*/
 	})
 })
 

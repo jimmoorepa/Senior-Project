@@ -10,6 +10,7 @@ including header content which is common for all pages
 		<% var prodId = product.idProduct %> 
 	  <% console.log("view.ejs, prodId = " + prodId) %>
 	<form action="/cart/add?<%=prodId%>" method="POST" id="update" name="frmupdate">
+	<input type="hidden" name="productID" id="productID" value="<%=product.idProduct%>">
   <div class="offers container">
     <div class="row">
 	  <div class="col-lg-4 py-3">
