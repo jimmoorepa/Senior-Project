@@ -40,6 +40,8 @@ app.use(session({
 	cookie: { maxAge: 60000 }
 }))
 app.use(flash())
+//app.use(express.session());
+//app.use(app.router);
 
 /**
  * Express Validator Middleware for Form Validation
@@ -79,10 +81,13 @@ app.use('/', indexRouter);
 //===================================================
 app.use('/products', productsRouter); 
 app.use('/products/view/(:prodid)', productsRouter); 
+app.post('/products/add', productsRouter);
+//app.post('/products/edit/:prodid', productsRouter.edit);
 
 //===================================================
 app.use('/cart', CartRouter);
-app.use('/cart/add?(:prodId)', CartRouter);
+app.post('/cart/add?(:prodId)', CartRouter);
+app.post('/cart/checkout', CartRouter);
 //app.use('/cart/del?(:prodId)', CartRouter);
 //===================================================
 app.get('/search?(:searchtext)', urlencodedParser, SearchRouter);

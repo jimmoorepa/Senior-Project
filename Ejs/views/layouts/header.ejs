@@ -34,15 +34,31 @@
 
     <div class="collapse navbar-collapse" id="navbarsExample07">
       <ul class="navbar-nav mr-auto">
+	  
         <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
+		
         <li class="nav-item">
           <a class="nav-link" href="sellers">Sellers</a>
         </li>
+		
         <li class="nav-item">
-          <a class="nav-link" href="product">Products</a>
+          <a class="nav-link" href="products/add">Products</a>
         </li>
+		
+		<!-- 
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="/products" id="dropdown07" 
+			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Products</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown07">
+            <a class="dropdown-item" href="/products/">Show</a>
+            <a class="dropdown-item" href="/products/add">Add</a>
+            <a class="dropdown-item" href="/products/edit">Update</a>
+          </div>  "${sessionScope.user}" 
+		</li> -->
+		
         <li class="nav-item">
           <!-- <a class="nav-link" onclick="showSignin();">Sign-In</a> -->
          <a class="nav-link" href="signin">Sign-In</a>
@@ -56,6 +72,7 @@
          <a class="nav-link" href=""><b>Hello <%=user%></b></a>
 		  <%} %>
         </li> 
+		
       </ul> 
 		  <form class="form-inline my-2 my-md-0" action="/cart">
             <button class="btn btn-outline-success my-1 my-sm-1 bg-dark" 

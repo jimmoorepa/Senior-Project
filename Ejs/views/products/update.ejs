@@ -1,0 +1,98 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>	
+
+
+<body>
+    <div class="container border border-secondary" id="productContainer">
+        <br>
+        <form id="foodProductForm" action="/products/edit" method="POST">
+            <div class="form-group row">
+                <label for="inputProductName" class="col-sm-2 col-form-label">
+					Product name:</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="inputProductName" 
+					placeholder="Ex. Wild Whole Oats">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputFoodType" class="col-sm-2 col-form-label">
+					Product type:</label>
+                <div class="col">
+                    <select id="inputFoodType" class="form-control">
+                        <option selected>Choose a product type</option>
+                        <option>Baby food</option>
+                        <option>Baked goods</option>
+                        <option>Cakes</option>
+                        <option>Biscuits</option>
+                        <option>Crackers</option>
+                        <option>Beverages</option>
+                        <option>Breakfast foods</option>
+                        <option>Canned foods</option>
+                        <option>Chips, crisps, corn snacks, nuts and seeds</option>
+                        <option>Condiments</option>
+                        <option>Confectionery</option>
+                        <option>Dairy products</option>
+                        <option>Cheeses and cheese foods</option>
+                        <option>Dips</option>
+                        <option>Egg products</option>
+                        <option>Frozen foods</option>
+                        <option>Ice cream and frozen desserts</option>
+                        <option>Meats</option>
+                        <option>Oils, butters and fat spreads</option>
+                        <option>Pickles and vinegar</option>
+                        <option>Sauces</option>
+                        <option>Soy foods</option>
+                        <option>Spreads, jams and honeys</option>
+                        <option>Prepared/ready-made meals and foods</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputProductPrice" class="col-sm-2 col-form-label">
+					Product price:</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="inputZip">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputProductDescription" class="col-sm-2 col-form-label">
+					Describe your product:</label>
+                <div class="col">
+                    <textarea class="form-control" id="inputProductDescription" 
+					rows="3"
+                        placeholder="Ex. This rare tea comes from a remote mountain 
+						region of China"></textarea>
+                </div>
+            </div>
+			<div class="form-group row">
+                <label for="inputProductDescription" class="col-sm-2 col-form-label">
+					Availability:</label>
+                <div class="col">
+                    <textarea class="form-control" id="IsAvailable" 
+						rows="1"
+                        placeholder="Ex. Yes or No"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="productImage" class="col-sm-2 col-form-label">
+					Upload a picure of your product:</label>
+                <div class="col">
+                    <input type="file" class="form-control-file" id="productImage">
+                </div>
+            </div>
+            <button type="submit" class="float-right">Add / Update</button>
+        </form>
+        <br>
+        <br>
+    </div>
+
+
+</body>
+
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>

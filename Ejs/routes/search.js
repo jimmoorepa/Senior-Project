@@ -9,9 +9,9 @@ router.use('/', function(req, res, next) {
 	req.getConnection(function(error, conn) {
 	
 	  var prodId = req.body.qtext;
-	  console.log("body: " + req.body.qtext);
+	  //console.log("body: " + req.body.qtext);
 	  console.log("prodId = " + prodId);
-	  var whereString = " Name = '" + prodId + "'";
+	  var whereString = " Name like '%" + prodId + "%'";
 	  
       var prodQuery = "SELECT * FROM product WHERE " + whereString;
 		conn.query(prodQuery, function(err, rows, fields) {

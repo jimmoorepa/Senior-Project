@@ -4,9 +4,39 @@ including header content which is common for all pages
 <%- include ../views/layouts/header.ejs %>	
 
 <body>
- 
+
 <div class="container">
-		
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <p>
+        Farm-Fresh is dedicated to providing a channel between enthusiastic growers        and health-conscious consumers. Our vendors provide an array of edible foods      grown and harvested using methods that sustain their home environments. From       our vegetables to our spices, from our cheeses to our honey, providers apply       management techniques to ensure respect and replenishment for the sources of their bounty.
+      </p>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <h3>Comprehensive Selection</h3>
+        <p>
+          Quality items provided by skilled growers.
+        </p>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <h3>Fast and Convenient Delivery</h3>
+      <p>
+        Packaged and shipped to ensure the highest freshness and quality.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-2 shadow-sm">
+      <h3>Buyer Picks</h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  	
   <!-- If 'data' contains records populate page -->
   <% if (data.length > 0) { %>
   <!--<div class="card-deck mb-3 text-center">-->
@@ -14,6 +44,7 @@ including header content which is common for all pages
 	<% var cellCounter = 0 %>
 	
 	<% data.forEach(function(product){ %>
+    <!-- form action="/cart/add<%=prodId%>" method="POST"  -->
 		<% var prodId = product.idProduct %>
 	  <% console.log("index.ejs, prodId = " + prodId) %>
   
@@ -36,7 +67,8 @@ including header content which is common for all pages
 			$ <%=product.Price.toFixed(2) %> </h1>
         <ul class="list-unstyled mt-3 mb-4">
           <li><h5>Description:</h5> <p><%=product.Description%></p></li>
-		  <li><img src="./images/broccoli.png" height=100 width=75></li>
+          <% var imageURL = 'data:image/jpeg;base64,' + new Buffer(product.image, 'binary').toString('base64') %> 
+		  <li><img src="<%=imageURL%>" height=100 width=125></li>
         </ul>
 		<input type="hidden" id=<%=prodId%> name=<%=prodId%> value="<%=prodId%>"> 
 		<!-- document.getElementById('<%=prodId%>').value; -->
@@ -57,7 +89,7 @@ including header content which is common for all pages
     <!--Second Row-->
     <% cellCounter = 0 %>
   <% } %>
- 
+        <!-- /form -->
   	<% }) %>
   <% } %> 
   
