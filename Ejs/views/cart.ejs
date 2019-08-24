@@ -4,6 +4,7 @@ including header content which is common for all pages
 <%- include ./layouts/header.ejs %>	
  
 <body>
+        <% var TotalPrice = "" %>
 <div class="container">
   <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
@@ -18,7 +19,6 @@ including header content which is common for all pages
         <span class="badge badge-secondary badge-pill">3</span>
       </h4>
       <ul class="list-group mb-3">
-        <% var TotalPrice = "" %>
 
          <% Purdata.forEach(function(cartItem){ %>
           <% var prodId = Purdata.idProduct %> 

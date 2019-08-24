@@ -96,6 +96,7 @@ router.post('/add?(:prodId)', function(req, res, next) {
         DateTime: '2019-08-22 15:30:00',
         PurchaseStatus: '1'
     }; 
+    console.log("Price: " + req.body.price)
     req.getConnection(function(error, conn) {
 		conn.query('INSERT INTO ' + tableId + ' SET ?', purchase_data, (err, results) => {
 			if (err) {

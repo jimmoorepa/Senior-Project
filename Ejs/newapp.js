@@ -76,7 +76,10 @@ var CartRouter = require('./routes/cart');
 var SearchRouter = require('./routes/search');
 var UsersRouter = require('./routes/signin');
 
+var FooterRouter = require('./routes/footer');
+
 app.use('/', indexRouter);
+app.get('/footer', FooterRouter);
 
 //===================================================
 app.use('/products', productsRouter); 

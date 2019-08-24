@@ -1,0 +1,48 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ./layouts/header.ejs %>	
+
+<body>
+
+<div class="container border border-secondary" id="productContainer">
+        <br>
+        <form id="foodProductForm" action="/user/comments" method="POST">
+            <div class="form-group row">
+                <label for="inputFullName" class="col-sm-2 col-form-label">
+					Full Name:</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="inputFullName" 
+					name="inputFullName" placeholder="Alad Din">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputEmail" class="col-sm-2 col-form-label">
+					Email Address:</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="inputEmail"
+                    name="inputEmail">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputDetails" class="col-sm-2 col-form-label">
+					Type your message here:</label>
+                <div class="col">
+                    <textarea class="form-control" id="inputDetails" 
+					rows="4" name="inputDetails"
+                        placeholder="Type your message here..."></textarea>
+                </div>
+            </div>
+            <button type="submit" class="float-right disabled">Submit</button>
+        </form>
+        <br>
+        <br>
+    </div>
+
+</body>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ./layouts/footer.ejs %>

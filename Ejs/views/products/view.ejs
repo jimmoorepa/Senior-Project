@@ -28,11 +28,41 @@ including header content which is common for all pages
 		  "<%=product.Name%>"></h4>
 		</div>
 
+		<div class="form-group row">
+            <label for="inputProductPrice" class="col-sm-2 col-form-label">
+				Product price:</label>
+            <div class="col">
+                <input type="text" class="form-control" id="price" name="price"
+                  value ="<%=product.Price.toFixed(2) %>">
+            </div>
+        </div>
+
+		<!--
 		<div class="col-sm-4">
 		  <h4>Price: <input type="text" id="price" name="price"
 		  value ="<%=product.Price.toFixed(2) %>"></h4>
-		</div>
+		</div> -->
 
+		<!--
+		<div class="form-group row">
+                <label for="inputProductDescription" class="col-sm-2 col-form-label">
+					Short Description:</label>
+                <div class="col">
+                    <textarea class="form-control" id="shortDesc" name="shortDesc" 
+					rows="1" cols=""30 
+					value="<%=product.ShortDescription%>"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group row">
+                <label for="inputProductDescription" class="col-sm-2 col-form-label">
+					Full description of Product:</label>
+                <div class="col">
+                    <textarea class="form-control" id="desc" name="desc" 
+					rows="3" value="<%=product.Description%>"></textarea>
+            </div>
+        </div> -->
+        
 		<div class="col-md-12 py-3">
 		  Short Description: <input type="text" id="desc" name="desc"
 		  value ="<%=product.ShortDescription%>">
@@ -40,13 +70,33 @@ including header content which is common for all pages
 
 		<div class="col-md-12 py-3">
 		  <h4>Full Description:</h4> <br>
-		  <textarea id="desc" name="desc" rows="10" cols="30">
+		  <textarea id="desc" name="desc" rows="3" cols="80">
 		  <%=product.Description%></textarea>
 
+		<div class="col-sm-50">
+        	<div class="col-sm-6">
+        		<label for="Quantity">Quantity</label>
+            		<select class="custom-select d-block w-20" 
+            		name="qtySelected" id="qtySelected"  required>
+              <option>0</option>
+              <option Selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+        </select>
+      </div>
+
+      <!--
 		<div class="col-md-12 py-3">
 			Quantity Selected:
 			<input type="text" name="qtySelected" id="qtySelected" >		  
-		</div>
+		</div> -->
 
 	  </div>
 	  <div class="col-lg-4 py-3 row">

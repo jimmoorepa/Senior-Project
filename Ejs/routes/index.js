@@ -33,6 +33,18 @@ app.get('/', function(req, res, next) {
 	})
 })
 
+
+app.get('/about', function(req, res, next) {	
+	res.render('about', {
+		title: 'About Us'
+	})
+})
+
+app.get('/contactus', function(req, res, next) {	
+	res.render('contactus', {
+		title: 'Contact Us'
+	})
+})
  
 /** 
  * We assign app object to module.exports

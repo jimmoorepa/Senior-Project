@@ -49,7 +49,8 @@ including header content which is common for all pages
       <div class="col-sm-50">
         <div class="col-sm-6">
         <label for="state">Quantity</label>
-            <select class="custom-select d-block w-20" id="quantitySelected" required>
+            <select class="custom-select d-block w-20" 
+              name="qtySelected" id="qtySelected" required>
               <option>0</option>
               <option Selected>1</option>
               <option>2</option>
@@ -63,6 +64,8 @@ including header content which is common for all pages
               <option>10</option>
         </select>
       </div>
+      <input type="hidden" class="form-control" id="price" name="price"
+                  value ="<%=product.Price %>">
       <input type="hidden" name="productID" id="productID" value="<%=product.idProduct%>">
       <div class="col-sm-24">
         <button type="submit" class="btn btn-sm btn-block btn-primary"
