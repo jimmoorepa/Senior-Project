@@ -1,3 +1,4 @@
+
 var express = require('express')
 var app = express() 
 var routes = require('./routes');
@@ -12,7 +13,7 @@ var dbOptions = {
 	user: 	  config.database.user,
 	password: config.database.password,
 	port: 	  config.database.port, 
-	database: config.database.database
+	database: config.database
 }
 
 app.use(myConnection(mysql, dbOptions, 'pool'))
