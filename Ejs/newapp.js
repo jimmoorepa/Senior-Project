@@ -13,7 +13,7 @@ var dbOptions = {
 	user: 	  config.database.user,
 	password: config.database.password,
 	port: 	  config.database.port, 
-	database: config.database
+	database: config.database.database
 }
 
 app.use(myConnection(mysql, dbOptions, 'pool'))

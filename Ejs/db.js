@@ -1,4 +1,3 @@
-module.exports = db
 var db = {
 	database: {
 		host:		'db.it.pointpark.edu',
@@ -8,7 +7,8 @@ var db = {
 		database:	'FoodCoop'
 	},
 	server: {
-		host: 'klfulto.it.pointpark.edu',
+		host: 'jmoore.it.pointpark.edu',
 		port: '3000'
 	}
 }
+module.exports = db;
